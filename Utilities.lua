@@ -19,3 +19,8 @@ end
 
 -- ex. print(findClosestPart(workspace.Folder, workspace.Part2.Position)) 
 -- Will find the closest part to Part2 that's in the Folder
+local Player = game.Players.LocalPlayer
+local Character = Player.Character
+local Humanoid = Character.Humanoid
+local HumanoidRootPart = Character.HumanoidRootPart
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
