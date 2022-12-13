@@ -198,7 +198,7 @@ do
                         Name = "logo";
                         Size = UDim2.new(0, 24, 0, 20);
                         Position = UDim2.new(1, -30, 0, 7);
-                        Image = "rbxassetid://11792883046";
+                        Image = "rbxassetid://11792883023";
                         BackgroundTransparency = 1;
                         ZIndex = 3;
                     });
