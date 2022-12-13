@@ -442,7 +442,7 @@ do
                 Position = UDim2.new(0, 0, 0, 5);
                 BackgroundTransparency = 1;
                 Image = "rbxassetid://4894670678";
-                ImageColor3 = Color3.fromRGB(225, 58, 75);
+                ImageColor3 = Color3.fromRGB(81, 237, 120);
                 ImageTransparency = 0.35;
                 ScaleType = Enum.ScaleType.Slice;
                 SliceCenter = Rect.new(5, 5, 434, 297);
