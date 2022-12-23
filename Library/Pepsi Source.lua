@@ -329,7 +329,7 @@ Library v0.35 [
                     	(any | nil) InvalidValue = "Optional value to be set, if the list's current value is no longer in list"
                     ) -> IsValidBool
                 ]
-                AddColorpicker: Function (
+                Addpicker: Function (
                     (table) Options [
                         (string) Name = "Colorpicker Name"
                         (string | Color3 | nil) Value = "rainbow" or "random" | Color3.new()
@@ -477,12 +477,12 @@ local library = {
 		easingDirection = Enum.EasingDirection.Out
 	},
 	colors = {
-		main = Color3.fromRGB(255, 39, 39),
-		background = Color3.fromRGB(40, 40, 40),
-		outerBorder = Color3.fromRGB(15, 15, 15),
-		innerBorder = Color3.fromRGB(73, 63, 73),
+		main = Color3.fromRGB(16, 251, 138),
+		background = Color3.fromRGB(18, 50, 17),
+		outerBorder = Color3.fromRGB(59, 240, 113),
+		innerBorder = Color3.fromRGB(24, 57, 38),
 		topGradient = Color3.fromRGB(35, 35, 35),
-		bottomGradient = Color3.fromRGB(29, 29, 29),
+		bottomGradient = Color3.fromRGB(12, 49, 10),
 		sectionBackground = Color3.fromRGB(35, 34, 34),
 		section = Color3.fromRGB(176, 175, 176),
 		otherElementText = Color3.fromRGB(129, 127, 129),
