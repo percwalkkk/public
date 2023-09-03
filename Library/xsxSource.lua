@@ -1,8 +1,313 @@
+-- // FUNCTION DOCS: 
 --[[
-  UI lib made by bungie#0001
-  
-  - Please do not use this without permission, I am working really hard on this UI to make it perfect and do not have a big 
-    problem with other people using it, please just make sure you message me and ask me before using.
+    MAIN COMPONENT DOCS:
+
+    -- // local library = loadstring(game:HttpGet(link: url))()
+    -- // library.title = text: string
+    -- // local Window = library:Init()
+
+    -- [library.title contains rich text]
+
+    -- / library:Remove()
+    -- destroys the library
+
+    -- / library:Text("new")
+    -- sets the lbrary's text to something new
+
+    - / library:UpdateKeybind(Enum.KeyCode.RightAlt)
+    -- sets the lbrary's keybind to switch visibility to something new
+
+    __________________________
+
+    -- // local notificationLibrary = library:InitNotifications()
+    -- // local Notification = notificationLibrary:Notify(text: string, time: number, type: string (information, notification, alert, error, success))
+
+    -- [Notify contains rich text]
+
+    -- / 3rd argument is a function, used like this:
+    
+    Notif:Notify("Function notification", 7, function()
+        print("done")
+    end)
+
+    -- / Welcome:Text("new text")
+    -- sets the notifications text to something differet [ADDS A +0.4 ONTO YOUR TIMER]
+
+    __________________________
+
+    -- // local Wm = library:Watermark(text: string)
+
+    -- [Watermark contains rich text]
+
+    -- / Wm:Hide()
+    -- hides the watermark from eye view
+
+    -- / Wm:Show()
+    -- makes the watermark visible at the top of your screen
+
+    -- / Wm:Text("new")
+    -- sets the watermark's text to something new
+
+    -- / Wm:Remove()
+    -- destroys the watermark
+
+    __________________________
+
+    -- // local Tab1 = Init:NewTab(text: string)
+
+    -- [tab title contains rich text]
+
+    -- / Tab1:Open()
+    -- opens the tab you want
+
+    -- / Tab1:Remove()
+    -- destroys the tab
+
+    -- / Tab1:Hide()
+    -- hides the tab from eye view
+
+    -- / Tab1:Show()
+    -- makes the tab visible on the selection table
+
+    -- / Tab1:Text("new")
+    -- sets the tab's text to something new
+
+    __________________________
+
+    -- [label contains rich text]
+
+    -- / Label1:Text("new")
+    -- sets the label's text to something new
+
+    -- / Label1:Remove()
+    -- destroys the label
+
+    -- / Label1:Hide()
+    -- hides the label from eye view
+
+    -- / Label1:Show()
+    -- makes the tab visible on the page that is used
+
+    -- / Label1:Align("le")
+    -- aligns the label to a new point in text X
+
+    __________________________
+
+    -- [Button contains rich text]
+
+    -- / Button1:AddButton("text", function() end)
+    -- adds a new button inside of the frame [CAN ONLY GO UP TO 4 BUTTONS AT A TIME]
+
+    -- / Button1:Fire()
+    -- executes the script within the button
+
+    -- / Button1:Text("new")
+    -- sets the button's text to something new
+
+    -- / Button1:Hide()
+    -- hides the button from eye view
+
+    -- / Button1:Show()
+    -- makes the button visible
+
+    -- / Button1:Remove()
+    -- destroys the button
+
+    __________________________
+
+    -- [Sections contain rich text]
+
+    -- / Section1:Text("new")
+    -- sets the section's text to something new
+
+    -- / Section1:Hide()
+    -- hides the section from eye view
+
+    -- / Section1:Show()
+    -- makes the section visible
+
+    -- / Section1:Remove()
+    -- destroys the section
+
+    __________________________
+
+    -- [Toggles contain rich text]
+
+    -- / Toggle1:Text("new")
+    -- sets the toggle's text to something new
+
+    -- / Toggle1:Hide()
+    -- hides the toggle from eye view
+
+    -- / Toggle1:Show()
+    -- makes the toggle visible
+
+    -- / Toggle1:Remove()
+    -- destroys the toggle
+
+    -- / Toggle1:Change()
+    -- changes the toggles state to the opposite
+
+    -- / Toggle1:Set(true)
+    -- sets the toggle to true even if it is true
+
+    -- / Toggle1:AddKeybind(Enum.KeyCode.P, false, function() end) -- false / true is used for just changing the toggles state
+    -- adds a keybind to the toggle
+
+    -- / Toggle1:SetFunction(function() end)
+    -- sets the toggles function
+
+    __________________________
+
+    -- [Keybinds contain rich text]
+
+    -- / Keybind1:Text("new")
+    -- sets the keybind's text to something new
+
+    -- / Keybind1:Hide()
+    -- hides the keybind from eye view
+
+    -- / Keybind1:Show()
+    -- makes the keybind visible
+
+    -- / Keybind1:Remove()
+    -- destroys the keybind
+
+    -- / Keybind1:SetKey(Enum.KeyCode.P)
+    -- sets the keybinds new key
+
+    -- / Keybind1:Fire()
+    -- fires the keybind function
+
+    -- / Keybind1:SetFunction(function() end)
+    -- sets the new keybind function
+
+    __________________________
+
+    -- [Textboxes contain rich text]
+
+    -- / Textbox1:Input("new")
+    -- sets the text box's input to something new
+
+    -- / Textbox1:Place("new")
+    -- sets the text box's placeholder to something new
+
+    -- / Textbox1:Fire()
+    -- fires the textbox function
+
+    -- / Textbox1:SetFunction(function() end)
+    -- sets the text boxes new function
+
+    -- / Textbox1:Text("new")
+    -- sets the textbox's text to something new
+
+    -- / Textbox1:Hide()
+    -- hides the textbox from eye view
+
+    -- / Textbox1:Show()
+    -- makes the textbox visible
+
+    -- / Textbox1:Remove()
+    -- destroys the textbox
+
+    __________________________
+
+    -- [Selectors contain rich text]
+
+    -- / Selector1:SetFunction(function() end)
+    -- sets the selector new function
+
+    -- / Selector1:Text("new")
+    -- sets the selector's text to something new
+
+    -- / Selector1:Hide()
+    -- hides the selector from eye view
+
+    -- / Selector1:Show()
+    -- makes the selector visible
+
+    -- / Selector1:Remove()
+    -- destroys the selector
+
+    __________________________
+
+    -- [Sliders contain rich text]
+
+    -- / Slider1:Value(1)
+    -- sets the slider new value
+
+    -- / Slider1:SetFunction(function() end)
+    -- sets the slider new function
+
+    -- / Slider1:Text("new")
+    -- sets the slider's text to something new
+
+    -- / Slider1:Hide()
+    -- hides the slider from eye view
+
+    -- / Slider1:Show()
+    -- makes the slider visible
+
+    -- / Slider1:Remove()
+    -- destroys the slider
+
+    ---------------------------------------------------------------------------------------------------------
+
+    MISC SEMI USELESS DOCS:
+
+    -- / library.rank = ""
+    -- returns the rank you choose (default = "private")
+
+    -- / library.fps
+    -- returns FPS you're getting in game
+
+    -- / library.version
+    -- returns the version of the library
+
+    -- / library.title = ""
+    -- returns the title of the library
+
+    -- / library:GetDay("word") -- word, short, month, year
+    -- returns the os day
+
+    -- / library:GetTime("24h") -- 24h, 12h, minute, half, second, full, ISO, zone
+    -- returns the os time
+
+    -- / library:GetMonth("word") -- word, short, digit
+    -- returns the os month
+
+    -- / library:GetWeek("year_S") -- year_S, day, year_M
+    -- returns the os week
+
+    -- / library:GetYear("digits") -- digits, full
+    -- returns the os year
+
+    -- / library:GetUsername()
+    -- returns the localplayers username
+
+    -- / library:GetUserId()
+    -- returns the localplayers userid
+
+    -- / library:GetPlaceId()
+    -- returns the games place id
+
+    -- / library:GetJobId()
+    -- returns the games job id
+
+    -- / library:CheckIfLoaded()
+    -- returns true if you're fully loaded
+
+    -- / library:Rejoin()
+    -- rejoins the same server as you was in
+
+    -- / library:Copy("stuff")
+    -- copies the inputed string
+
+    -- / library:UnlockFps(500) -- only works with synapse
+    -- sets the max fps to something you choose
+    
+    -- / library:PromptDiscord("invite")
+    -- invites you to a discord
 ]]
 
 -- / Locals
@@ -79,8 +384,8 @@ local drag = function(obj, latency)
 end
 
 local library = {
-    version = "2.0.2",
-    title = title or "xsx " .. tostring(math.random(1,366)),
+    version = "2.1.3",
+    title = title or "hashnine " .. tostring(math.random(1,366)),
     fps = 0,
     rank = "private"
 }
@@ -202,7 +507,7 @@ function library:Watermark(text)
         end
     end
 
-    tetx = text or "xsx v2"
+    tetx = text or "hashnine v2"
 
     local watermark = Instance.new("ScreenGui")
     local watermarkPadding = Instance.new("UIPadding")
@@ -262,7 +567,7 @@ function library:Watermark(text)
 
     bar.Name = "bar"
     bar.Parent = barFolder
-    bar.BackgroundColor3 = Color3.fromRGB(244, 146, 240)
+    bar.BackgroundColor3 = Color3.fromRGB(159, 115, 255)
     bar.BackgroundTransparency = 0
     bar.Size = UDim2.new(0, 0, 0, 1)
 
@@ -289,7 +594,7 @@ function library:Watermark(text)
     waterText.BackgroundTransparency = 1.000
     waterText.Position = UDim2.new(0, 0, -0.0416666679, 0)
     waterText.Size = UDim2.new(0, 0, 0, 24)
-    waterText.Font = Enum.Font.Code
+    waterText.Font = Enum.Font.SourceSansBold
     waterText.Text = text
     waterText.TextColor3 = Color3.fromRGB(198, 198, 198)
     waterText.TextTransparency = 1
@@ -326,7 +631,7 @@ function library:Watermark(text)
 
     local WatermarkFunctions = {}
     function WatermarkFunctions:AddWatermark(text)
-        tetx = text or "xsx v2"
+        tetx = text or "hashnine v2"
 
         local edge = Instance.new("Frame")
         local edgeCorner = Instance.new("UICorner")
@@ -367,7 +672,7 @@ function library:Watermark(text)
     
         bar.Name = "bar"
         bar.Parent = barFolder
-        bar.BackgroundColor3 = Color3.fromRGB(244, 146, 240)
+        bar.BackgroundColor3 = Color3.fromRGB(159, 115, 255)
         bar.BackgroundTransparency = 0
         bar.Size = UDim2.new(0, 0, 0, 1)
     
@@ -394,7 +699,7 @@ function library:Watermark(text)
         waterText.BackgroundTransparency = 1.000
         waterText.Position = UDim2.new(0, 0, -0.0416666679, 0)
         waterText.Size = UDim2.new(0, 0, 0, 24)
-        waterText.Font = Enum.Font.Code
+        waterText.Font = Enum.Font.SourceSansBold
         waterText.Text = text
         waterText.TextColor3 = Color3.fromRGB(198, 198, 198)
         waterText.TextTransparency = 1
@@ -565,11 +870,11 @@ function library:InitNotifications(text, duration, callback)
     
         bar.Name = "bar"
         bar.Parent = barFolder
-        bar.BackgroundColor3 = Color3.fromRGB(244, 146, 240)
+        bar.BackgroundColor3 = Color3.fromRGB(159, 115, 255)
         bar.BackgroundTransparency = 0.200
         bar.Size = UDim2.new(0, 0, 0, 1)
         if type == "notification" then
-            bar.BackgroundColor3 = Color3.fromRGB(244, 146, 240)
+            bar.BackgroundColor3 = Color3.fromRGB(159, 115, 255)
         elseif type == "alert" then
             bar.BackgroundColor3 = Color3.fromRGB(255, 246, 112)
         elseif type == "error" then
@@ -602,7 +907,7 @@ function library:InitNotifications(text, duration, callback)
         notifText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         notifText.BackgroundTransparency = 1.000
         notifText.Size = UDim2.new(0, 230, 0, 26)
-        notifText.Font = Enum.Font.Code
+        notifText.Font = Enum.Font.SourceSansBold
         notifText.Text = text
         notifText.TextColor3 = Color3.fromRGB(198, 198, 198)
         notifText.TextSize = 14.000
@@ -692,9 +997,9 @@ function library:Introduction()
     local bar = Instance.new("Frame")
     local barCorner = Instance.new("UICorner")
     local barLayout = Instance.new("UIListLayout")
-    local xsxLogo = Instance.new("ImageLabel")
+    local hashnineLogo = Instance.new("ImageLabel")
     local hashLogo = Instance.new("ImageLabel")
-    local xsx = Instance.new("TextLabel")
+    local hashnine = Instance.new("TextLabel")
     local text = Instance.new("TextLabel")
     local pageLayout = Instance.new("UIListLayout")
     
@@ -737,7 +1042,7 @@ function library:Introduction()
     
     bar.Name = "bar"
     bar.Parent = barFolder
-    bar.BackgroundColor3 = Color3.fromRGB(244, 146, 240)
+    bar.BackgroundColor3 = Color3.fromRGB(159, 115, 255)
     bar.BackgroundTransparency = 0.200
     bar.Size = UDim2.new(0, 0, 0, 1)
     
@@ -750,16 +1055,17 @@ function library:Introduction()
     barLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
     barLayout.SortOrder = Enum.SortOrder.LayoutOrder
     
-    xsxLogo.Name = "xsxLogo"
-    xsxLogo.Parent = background
-    xsxLogo.AnchorPoint = Vector2.new(0.5, 0.5)
-    xsxLogo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    xsxLogo.BackgroundTransparency = 1.000
-    xsxLogo.Position = UDim2.new(0.5, 0, 0.5, 0)
-    xsxLogo.Size = UDim2.new(0, 150, 0, 150)
-    xsxLogo.Visible = true
-    xsxLogo.Image = "http://www.roblox.com/asset/?id=14666379737"
-    xsxLogo.ImageTransparency = 1
+    hashnineLogo.Name = "hashnineLogo"
+    hashnineLogo.Parent = background
+    hashnineLogo.AnchorPoint = Vector2.new(0.5, 0.5)
+    hashnineLogo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    hashnineLogo.BackgroundTransparency = 1.000
+    hashnineLogo.Position = UDim2.new(0.5, 0, 0.5, 0)
+    hashnineLogo.Size = UDim2.new(0, 150, 0, 150)
+    hashnineLogo.Visible = true
+    hashnineLogo.Image = "http://www.roblox.com/asset/?id=14666379737"
+    hashnineLogo.ImageColor3 = Color3.fromRGB(159, 115, 255)
+    hashnineLogo.ImageTransparency = 1
     
     hashLogo.Name = "hashLogo"
     hashLogo.Parent = background
@@ -770,19 +1076,19 @@ function library:Introduction()
     hashLogo.Size = UDim2.new(0, 150, 0, 150)
     hashLogo.Visible = true
     hashLogo.Image = "http://www.roblox.com/asset/?id=14666379737"
-    --hashLogo.ImageColor3 = Color3.fromRGB(244, 146, 240)
+    hashLogo.ImageColor3 = Color3.fromRGB(159, 115, 255)
     hashLogo.ImageTransparency = 1
     
-    xsx.Name = "xsx"
-    xsx.Parent = background
-    xsx.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    xsx.BackgroundTransparency = 1.000
-    xsx.Size = UDim2.new(0, 80, 0, 21)
-    xsx.Font = Enum.Font.Code
-    xsx.Text = "powered by xsx"
-    xsx.TextColor3 = Color3.fromRGB(124, 124, 124)
-    xsx.TextSize = 10.000
-    xsx.TextTransparency = 1
+    hashnine.Name = "hashnine"
+    hashnine.Parent = background
+    hashnine.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    hashnine.BackgroundTransparency = 1.000
+    hashnine.Size = UDim2.new(0, 88, 0, 21)
+    hashnine.Font = Enum.Font.SourceSansBold
+    hashnine.Text = "                 discord.gg/hashnine"
+    hashnine.TextColor3 = Color3.fromRGB(124, 124, 124)
+    hashnine.TextSize = 16
+    hashnine.TextTransparency = 1
     
     text.Name = "text"
     text.Parent = background
@@ -790,10 +1096,10 @@ function library:Introduction()
     text.BackgroundTransparency = 1.000
     text.Position = UDim2.new(0.912751675, 0, 0, 0)
     text.Size = UDim2.new(0, 26, 0, 21)
-    text.Font = Enum.Font.Code
-    text.Text = "hash"
+    text.Font = Enum.Font.SourceSansBold
+    text.Text = "v2   "
     text.TextColor3 = Color3.fromRGB(124, 124, 124)
-    text.TextSize = 10.000
+    text.TextSize = 20
     text.TextTransparency = 1
     text.RichText = true
     
@@ -803,12 +1109,12 @@ function library:Introduction()
     pageLayout.SortOrder = Enum.SortOrder.LayoutOrder
     pageLayout.VerticalAlignment = Enum.VerticalAlignment.Center
 
-    CreateTween("xsxRotation", 0)
-    local MinusAmount = -16
+    CreateTween("hashnineRotation", 0)
+    local MinusAmount = 220
     coroutine.wrap(function()
         while wait() do
             MinusAmount = MinusAmount + 0.4
-            TweenService:Create(xsxLogo, TweenTable["xsxRotation"], {Rotation = xsxLogo.Rotation - MinusAmount}):Play()
+            TweenService:Create(hashnineLogo, TweenTable["hashnineRotation"], {Rotation = hashnineLogo.Rotation - MinusAmount}):Play()
         end
     end)()
 
@@ -817,12 +1123,12 @@ function library:Introduction()
     wait(.2)
     TweenService:Create(bar, TweenTable["introduction"], {Size = UDim2.new(0, 298, 0, 1)}):Play()
     wait(.2)
-    TweenService:Create(xsx, TweenTable["introduction"], {TextTransparency = 0}):Play()
+    TweenService:Create(hashnine, TweenTable["introduction"], {TextTransparency = 0}):Play()
     TweenService:Create(text, TweenTable["introduction"], {TextTransparency = 0}):Play()
     wait(.3)
-    TweenService:Create(xsxLogo, TweenTable["introduction"], {ImageTransparency = 0}):Play()
+    TweenService:Create(hashnineLogo, TweenTable["introduction"], {ImageTransparency = 0}):Play()
     wait(2)
-    TweenService:Create(xsxLogo, TweenTable["introduction"], {ImageTransparency = 1}):Play()
+    TweenService:Create(hashnineLogo, TweenTable["introduction"], {ImageTransparency = 1}):Play()
     wait(.2)
     TweenService:Create(hashLogo, TweenTable["introduction"], {ImageTransparency = 0}):Play()
     wait(2)
@@ -830,7 +1136,7 @@ function library:Introduction()
     wait(.1)
     TweenService:Create(text, TweenTable["introduction"], {TextTransparency = 1}):Play()
     wait(.1)
-    TweenService:Create(xsx, TweenTable["introduction"], {TextTransparency = 1}):Play()
+    TweenService:Create(hashnine, TweenTable["introduction"], {TextTransparency = 1}):Play()
     wait(.1)
     TweenService:Create(bar, TweenTable["introduction"], {Size = UDim2.new(0, 0, 0, 1)}):Play()
     wait(.1)
@@ -920,7 +1226,7 @@ function library:Init(key)
     headerLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     headerLabel.BackgroundTransparency = 1.000
     headerLabel.Size = UDim2.new(0, 592, 0, 38)
-    headerLabel.Font = Enum.Font.Code
+    headerLabel.Font = Enum.Font.SourceSansBold
     headerLabel.Text = title
     headerLabel.TextColor3 = Color3.fromRGB(198, 198, 198)
     headerLabel.TextSize = 16.000
@@ -939,7 +1245,7 @@ function library:Init(key)
 
     bar.Name = "bar"
     bar.Parent = barFolder
-    bar.BackgroundColor3 = Color3.fromRGB(244, 146, 240)
+    bar.BackgroundColor3 = Color3.fromRGB(159, 115, 255)
     bar.BackgroundTransparency = 0.200
     bar.Size = UDim2.new(0, 592, 0, 1)
     bar.BorderSizePixel = 0
@@ -1041,7 +1347,7 @@ function library:Init(key)
         tabButton.Position = UDim2.new(-0.0281690136, 0, 0, 0)
         tabButton.Size = UDim2.new(0, 150, 0, 22)
         tabButton.AutoButtonColor = false
-        tabButton.Font = Enum.Font.Code
+        tabButton.Font = Enum.Font.SourceSansBold
         tabButton.Text = title
         tabButton.TextColor3 = Color3.fromRGB(170, 170, 170)
         tabButton.TextSize = 15.000
@@ -1058,7 +1364,7 @@ function library:Init(key)
         page.MidImage = "http://www.roblox.com/asset/?id=3062506202"
         page.ScrollBarThickness = 1
         page.TopImage = "http://www.roblox.com/asset/?id=3062506202"
-        page.ScrollBarImageColor3 = Color3.fromRGB(244, 146, 240)
+        page.ScrollBarImageColor3 = Color3.fromRGB(159, 115, 255)
         page.Visible = false
         
         pageLayout.Name = "pageLayout"
@@ -1076,7 +1382,7 @@ function library:Init(key)
 
         if TabLibrary.IsFirst then
             page.Visible = true
-            tabButton.TextColor3 = Color3.fromRGB(244, 146, 240)
+            tabButton.TextColor3 = Color3.fromRGB(159, 115, 255)
             TabLibrary.CurrentTab = title
         end
         
@@ -1094,7 +1400,7 @@ function library:Init(key)
                     TweenService:Create(v, TweenTable["tab_text_colour"], {TextColor3 = Color3.fromRGB(170, 170, 170)}):Play()
                 end
             end
-            TweenService:Create(tabButton, TweenTable["tab_text_colour"], {TextColor3 = Color3.fromRGB(244, 146, 240)}):Play()
+            TweenService:Create(tabButton, TweenTable["tab_text_colour"], {TextColor3 = Color3.fromRGB(159, 115, 255)}):Play()
         end)
 
         local function UpdatePageSize()
@@ -1122,7 +1428,7 @@ function library:Init(key)
             label.BackgroundTransparency = 1.000
             label.Position = UDim2.new(0.00499999989, 0, 0, 0)
             label.Size = UDim2.new(0, 396, 0, 24)
-            label.Font = Enum.Font.Code
+            label.Font = Enum.Font.SourceSansBold
             label.Text = text
             label.TextColor3 = Color3.fromRGB(190, 190, 190)
             label.TextSize = 14.000
@@ -1249,7 +1555,7 @@ function library:Init(key)
             buttonLabel.ClipsDescendants = true
             buttonLabel.Position = UDim2.new(0.5, 0, 0.5, 0)
             buttonLabel.Size = UDim2.new(0, 394, 0, 22)
-            buttonLabel.Font = Enum.Font.Code
+            buttonLabel.Font = Enum.Font.SourceSansBold
             buttonLabel.Text = text
             buttonLabel.TextColor3 = Color3.fromRGB(190, 190, 190)
             buttonLabel.TextSize = 14.000
@@ -1263,7 +1569,7 @@ function library:Init(key)
             end)
 
             button.MouseButton1Down:Connect(function()
-                TweenService:Create(buttonLabel, TweenTable["hover"], {TextColor3 = Color3.fromRGB(244, 146, 240)}):Play()
+                TweenService:Create(buttonLabel, TweenTable["hover"], {TextColor3 = Color3.fromRGB(159, 115, 255)}):Play()
             end)
             button.MouseButton1Up:Connect(function()
                 TweenService:Create(buttonLabel, TweenTable["hover"], {TextColor3 = Color3.fromRGB(190, 190, 190)}):Play()
@@ -1353,7 +1659,7 @@ function library:Init(key)
                     buttonLabel.ClipsDescendants = true
                     buttonLabel.Position = UDim2.new(0.5, 0, 0.5, 0)
                     buttonLabel.Size = UDim2.new(0, NewSizeX - 2, 0, 22)
-                    buttonLabel.Font = Enum.Font.Code
+                    buttonLabel.Font = Enum.Font.SourceSansBold
                     buttonLabel.Text = text
                     buttonLabel.TextColor3 = Color3.fromRGB(190, 190, 190)
                     buttonLabel.TextSize = 14.000
@@ -1369,7 +1675,7 @@ function library:Init(key)
                     end)
         
                     button.MouseButton1Down:Connect(function()
-                        TweenService:Create(buttonLabel, TweenTable["hover"], {TextColor3 = Color3.fromRGB(244, 146, 240)}):Play()
+                        TweenService:Create(buttonLabel, TweenTable["hover"], {TextColor3 = Color3.fromRGB(159, 115, 255)}):Play()
                     end)
                     button.MouseButton1Up:Connect(function()
                         TweenService:Create(buttonLabel, TweenTable["hover"], {TextColor3 = Color3.fromRGB(190, 190, 190)}):Play()
@@ -1497,7 +1803,7 @@ function library:Init(key)
             sectionLabel.ClipsDescendants = true
             sectionLabel.Position = UDim2.new(0.0252525248, 0, 0.020833334, 0)
             sectionLabel.Size = UDim2.new(0, 0, 0, 18)
-            sectionLabel.Font = Enum.Font.Code
+            sectionLabel.Font = Enum.Font.SourceSansBold
             sectionLabel.LineHeight = 1
             sectionLabel.Text = text
             sectionLabel.TextColor3 = Color3.fromRGB(190, 190, 190)
@@ -1577,7 +1883,7 @@ function library:Init(key)
             toggleButton.BackgroundTransparency = 1.000
             toggleButton.ClipsDescendants = false
             toggleButton.Size = UDim2.new(0, 396, 0, 22)
-            toggleButton.Font = Enum.Font.Code
+            toggleButton.Font = Enum.Font.SourceSansBold
             toggleButton.Text = ""
             toggleButton.TextColor3 = Color3.fromRGB(190, 190, 190)
             toggleButton.TextSize = 14.000
@@ -1636,7 +1942,7 @@ function library:Init(key)
             toggleLabel.BackgroundTransparency = 1.000
             toggleLabel.Position = UDim2.new(0.0454545468, 0, 0, 0)
             toggleLabel.Size = UDim2.new(0, 377, 0, 22)
-            toggleLabel.Font = Enum.Font.Code
+            toggleLabel.Font = Enum.Font.SourceSansBold
             toggleLabel.LineHeight = 1.150
             toggleLabel.Text = text
             toggleLabel.TextColor3 = Color3.fromRGB(190, 190, 190)
@@ -1790,7 +2096,7 @@ function library:Init(key)
                 keybindButtonLabel.ClipsDescendants = true
                 keybindButtonLabel.Position = UDim2.new(0.5, 0, 0.5, 0)
                 keybindButtonLabel.Size = UDim2.new(0, 85, 0, 20)
-                keybindButtonLabel.Font = Enum.Font.Code
+                keybindButtonLabel.Font = Enum.Font.SourceSansBold
                 keybindButtonLabel.Text = ". . ."
                 keybindButtonLabel.TextColor3 = Color3.fromRGB(190, 190, 190)
                 keybindButtonLabel.TextSize = 14.000
@@ -1950,7 +2256,7 @@ function library:Init(key)
             keybindLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
             keybindLabel.BackgroundTransparency = 1.000
             keybindLabel.Size = UDim2.new(0, 396, 0, 24)
-            keybindLabel.Font = Enum.Font.Code
+            keybindLabel.Font = Enum.Font.SourceSansBold
             keybindLabel.Text = text
             keybindLabel.TextColor3 = Color3.fromRGB(190, 190, 190)
             keybindLabel.TextSize = 14.000
@@ -2016,7 +2322,7 @@ function library:Init(key)
             keybindButtonLabel.ClipsDescendants = true
             keybindButtonLabel.Position = UDim2.new(0.5, 0, 0.5, 0)
             keybindButtonLabel.Size = UDim2.new(0, 85, 0, 20)
-            keybindButtonLabel.Font = Enum.Font.Code
+            keybindButtonLabel.Font = Enum.Font.SourceSansBold
             keybindButtonLabel.Text = ". . ."
             keybindButtonLabel.TextColor3 = Color3.fromRGB(190, 190, 190)
             keybindButtonLabel.TextSize = 14.000
@@ -2217,7 +2523,7 @@ function library:Init(key)
                 textBoxValues.BackgroundTransparency = 1.000
                 textBoxValues.Position = UDim2.new(0.664141417, 0, 0.0416666679, 0)
                 textBoxValues.Size = UDim2.new(0, 131, 0, 20)
-                textBoxValues.Font = Enum.Font.Code
+                textBoxValues.Font = Enum.Font.SourceSansBold
                 textBoxValues.PlaceholderColor3 = Color3.fromRGB(140, 140, 140)
                 textBoxValues.PlaceholderText = place
                 textBoxValues.Text = ""
@@ -2249,7 +2555,7 @@ function library:Init(key)
                 textboxLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 textboxLabel.BackgroundTransparency = 1.000
                 textboxLabel.Size = UDim2.new(0, 396, 0, 24)
-                textboxLabel.Font = Enum.Font.Code
+                textboxLabel.Font = Enum.Font.SourceSansBold
                 textboxLabel.Text = text
                 textboxLabel.TextColor3 = Color3.fromRGB(190, 190, 190)
                 textboxLabel.TextSize = 14.000
@@ -2356,7 +2662,7 @@ function library:Init(key)
 
                 textBoxValues.Focused:Connect(function()
                     textBoxValues:GetPropertyChangedSignal("Text"):Connect(ResizeTextBox)
-                    TweenService:Create(textbox, TweenTable["TextBox"], {BackgroundColor3 = Color3.fromRGB(244, 146, 240)}):Play()
+                    TweenService:Create(textbox, TweenTable["TextBox"], {BackgroundColor3 = Color3.fromRGB(159, 115, 255)}):Play()
                 end)
 
                 textBoxValues.FocusLost:Connect(function()
@@ -2503,7 +2809,7 @@ function library:Init(key)
                 textBoxValues.ClipsDescendants = true
                 textBoxValues.Position = UDim2.new(-0.587786257, 0, 0, 0)
                 textBoxValues.Size = UDim2.new(0, 394, 0, 20)
-                textBoxValues.Font = Enum.Font.Code
+                textBoxValues.Font = Enum.Font.SourceSansBold
                 textBoxValues.PlaceholderColor3 = Color3.fromRGB(140, 140, 140)
                 textBoxValues.PlaceholderText = place
                 textBoxValues.Text = default
@@ -2534,7 +2840,7 @@ function library:Init(key)
                 textboxLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 textboxLabel.BackgroundTransparency = 1.000
                 textboxLabel.Size = UDim2.new(0, 396, 0, 24)
-                textboxLabel.Font = Enum.Font.Code
+                textboxLabel.Font = Enum.Font.SourceSansBold
                 textboxLabel.Text = text
                 textboxLabel.TextColor3 = Color3.fromRGB(190, 190, 190)
                 textboxLabel.TextSize = 14.000
@@ -2585,7 +2891,7 @@ function library:Init(key)
                 end)
 
                 textBoxValues.Focused:Connect(function()
-                    TweenService:Create(textbox, TweenTable["TextBox"], {BackgroundColor3 = Color3.fromRGB(244, 146, 240)}):Play()
+                    TweenService:Create(textbox, TweenTable["TextBox"], {BackgroundColor3 = Color3.fromRGB(159, 115, 255)}):Play()
                 end)
 
                 textBoxValues.FocusLost:Connect(function()
@@ -2731,7 +3037,7 @@ function library:Init(key)
                 textBoxValues.BackgroundTransparency = 1.000
                 textBoxValues.ClipsDescendants = true
                 textBoxValues.Size = UDim2.new(0, 394, 0, 114)
-                textBoxValues.Font = Enum.Font.Code
+                textBoxValues.Font = Enum.Font.SourceSansBold
                 textBoxValues.PlaceholderColor3 = Color3.fromRGB(140, 140, 140)
                 textBoxValues.PlaceholderText = place
                 textBoxValues.Text = default
@@ -2764,7 +3070,7 @@ function library:Init(key)
                 textboxLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 textboxLabel.BackgroundTransparency = 1.000
                 textboxLabel.Size = UDim2.new(0, 396, 0, 24)
-                textboxLabel.Font = Enum.Font.Code
+                textboxLabel.Font = Enum.Font.SourceSansBold
                 textboxLabel.Text = text
                 textboxLabel.TextColor3 = Color3.fromRGB(190, 190, 190)
                 textboxLabel.TextSize = 14.000
@@ -2814,7 +3120,7 @@ function library:Init(key)
                 end)
 
                 textBoxValues.Focused:Connect(function()
-                    TweenService:Create(textbox, TweenTable["TextBox"], {BackgroundColor3 = Color3.fromRGB(244, 146, 240)}):Play()
+                    TweenService:Create(textbox, TweenTable["TextBox"], {BackgroundColor3 = Color3.fromRGB(159, 115, 255)}):Play()
                 end)
 
                 textBoxValues.FocusLost:Connect(function()
@@ -2920,7 +3226,7 @@ function library:Init(key)
             selectorLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
             selectorLabel.BackgroundTransparency = 1.000
             selectorLabel.Size = UDim2.new(0, 396, 0, 24)
-            selectorLabel.Font = Enum.Font.Code
+            selectorLabel.Font = Enum.Font.SourceSansBold
             selectorLabel.Text = text
             selectorLabel.TextColor3 = Color3.fromRGB(190, 190, 190)
             selectorLabel.TextSize = 14.000
@@ -2977,7 +3283,7 @@ function library:Init(key)
             selectorText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
             selectorText.BackgroundTransparency = 1.000
             selectorText.Size = UDim2.new(0, 394, 0, 20)
-            selectorText.Font = Enum.Font.Code
+            selectorText.Font = Enum.Font.SourceSansBold
             selectorText.LineHeight = 1.150
             selectorText.TextColor3 = Color3.fromRGB(160, 160, 160)
             selectorText.TextSize = 14.000
@@ -3048,12 +3354,12 @@ function library:Init(key)
                 optionButton.BackgroundTransparency = 1.000
                 optionButton.Size = UDim2.new(0, 394, 0, 20)
                 optionButton.AutoButtonColor = false
-                optionButton.Font = Enum.Font.Code
+                optionButton.Font = Enum.Font.SourceSansBold
                 optionButton.Text = v
                 optionButton.TextColor3 = Color3.fromRGB(160, 160, 160)
                 optionButton.TextSize = 14.000
                 if optionButton.Text == default then
-                    optionButton.TextColor3 = Color3.fromRGB(244, 146, 240)
+                    optionButton.TextColor3 = Color3.fromRGB(159, 115, 255)
                     callback(selectorText.Text)
                 end
 
@@ -3063,7 +3369,7 @@ function library:Init(key)
                             TweenService:Create(x, TweenTable["selector"], {TextColor3 = Color3.fromRGB(160, 160, 160)}):Play()
                         end
                     end
-                    TweenService:Create(optionButton, TweenTable["selector"], {TextColor3 = Color3.fromRGB(244, 146, 240)}):Play()
+                    TweenService:Create(optionButton, TweenTable["selector"], {TextColor3 = Color3.fromRGB(159, 115, 255)}):Play()
                     selectorText.Text = optionButton.Text
                     callback(optionButton.Text)
                 end)
@@ -3094,12 +3400,12 @@ function library:Init(key)
                 optionButton.BackgroundTransparency = 1.000
                 optionButton.Size = UDim2.new(0, 394, 0, 20)
                 optionButton.AutoButtonColor = false
-                optionButton.Font = Enum.Font.Code
+                optionButton.Font = Enum.Font.SourceSansBold
                 optionButton.Text = new
                 optionButton.TextColor3 = Color3.fromRGB(140, 140, 140)
                 optionButton.TextSize = 14.000
                 if optionButton.Text == default then
-                    optionButton.TextColor3 = Color3.fromRGB(244, 146, 240)
+                    optionButton.TextColor3 = Color3.fromRGB(159, 115, 255)
                     callback(selectorText.Text)
                 end
 
@@ -3109,7 +3415,7 @@ function library:Init(key)
                             TweenService:Create(x, TweenTable["selector"], {TextColor3 = Color3.fromRGB(140, 140, 140)}):Play()
                         end
                     end
-                    TweenService:Create(optionButton, TweenTable["selector"], {TextColor3 = Color3.fromRGB(244, 146, 240)}):Play()
+                    TweenService:Create(optionButton, TweenTable["selector"], {TextColor3 = Color3.fromRGB(159, 115, 255)}):Play()
                     selectorText.Text = optionButton.Text
                     callback(optionButton.Text)
                 end)
@@ -3280,7 +3586,7 @@ function library:Init(key)
             sliderIndicatorStraint.Parent = sliderIndicator
             sliderIndicatorStraint.MaxSize = Vector2.new(392, 12)
 
-            sliderIndicatorGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(244, 146, 240)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(128, 94, 208))}
+            sliderIndicatorGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(159, 115, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(128, 94, 208))}
             sliderIndicatorGradient.Rotation = 90
             sliderIndicatorGradient.Name = "sliderIndicatorGradient"
             sliderIndicatorGradient.Parent = sliderIndicator
@@ -3307,7 +3613,7 @@ function library:Init(key)
             sliderLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
             sliderLabel.BackgroundTransparency = 1.000
             sliderLabel.Size = UDim2.new(0, 396, 0, 24)
-            sliderLabel.Font = Enum.Font.Code
+            sliderLabel.Font = Enum.Font.SourceSansBold
             sliderLabel.Text = text
             sliderLabel.TextColor3 = Color3.fromRGB(190, 190, 190)
             sliderLabel.TextSize = 14.000
@@ -3328,7 +3634,7 @@ function library:Init(key)
             sliderValue.BackgroundTransparency = 1.000
             sliderValue.Position = UDim2.new(0.577319562, 0, 0, 0)
             sliderValue.Size = UDim2.new(0, 169, 0, 15)
-            sliderValue.Font = Enum.Font.Code
+            sliderValue.Font = Enum.Font.SourceSansBold
             sliderValue.Text = values.default
             sliderValue.TextColor3 = Color3.fromRGB(140, 140, 140)
             sliderValue.TextSize = 14.000
@@ -3520,7 +3826,7 @@ function library:Init(key)
                     TweenService:Create(v, TweenTable["tab_text_colour"], {TextColor3 = Color3.fromRGB(170, 170, 170)}):Play()
                 end
             end
-            TweenService:Create(tabButton, TweenTable["tab_text_colour"], {TextColor3 = Color3.fromRGB(244, 146, 240)}):Play()
+            TweenService:Create(tabButton, TweenTable["tab_text_colour"], {TextColor3 = Color3.fromRGB(159, 115, 255)}):Play()
 
             return Components
         end
