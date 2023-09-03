@@ -756,7 +756,7 @@ function library:Introduction()
     xsxLogo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     xsxLogo.BackgroundTransparency = 1.000
     xsxLogo.Position = UDim2.new(0.5, 0, 0.5, 0)
-    xsxLogo.Size = UDim2.new(0, 448, 0, 150)
+    xsxLogo.Size = UDim2.new(0, 150, 0, 150)
     xsxLogo.Visible = true
     xsxLogo.Image = "http://www.roblox.com/asset/?id=14666379737"
     xsxLogo.ImageTransparency = 1
