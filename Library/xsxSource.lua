@@ -758,7 +758,7 @@ function library:Introduction()
     xsxLogo.Position = UDim2.new(0.5, 0, 0.5, 0)
     xsxLogo.Size = UDim2.new(0, 150, 0, 150)
     xsxLogo.Visible = true
-    xsxLogo.Image = "http://www.roblox.com/asset/?id=14666379737"
+    xsxLogo.Image = "http://www.roblox.com/asset/?id=14672168745"
     xsxLogo.ImageTransparency = 1
     
     hashLogo.Name = "hashLogo"
