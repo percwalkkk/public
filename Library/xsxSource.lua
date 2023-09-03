@@ -1063,7 +1063,7 @@ function library:Introduction()
     hashnineLogo.Position = UDim2.new(0.5, 0, 0.5, 0)
     hashnineLogo.Size = UDim2.new(0, 150, 0, 150)
     hashnineLogo.Visible = true
-    hashnineLogo.Image = "http://www.roblox.com/asset/?id=14666379737"
+    hashnineLogo.Image = "http://www.roblox.com/asset/?id=14674954755"
     --hashnineLogo.ImageColor3 = Color3.fromRGB(244, 146, 240)
     hashnineLogo.ImageTransparency = 1
     
