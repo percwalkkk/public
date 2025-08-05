@@ -1,10 +1,115 @@
-local key = 'lolapoal'
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local UserInputService = game:GetService("UserInputService")
 
-if key == 'lolapoal' then
--- Do not save this file
--- Always use the loadstring 
-  _bsdata0 = {{4136402375,1754372417,388692},2025117705,785507,"\241\0\0\0","BC1E03E!1B10D3!62D!44-C661EA0E3BHBC-F!20D0401EAE!E3FHD-116A!H1AEDDE3H5D233!FHBF!E-DAF!B0H23EAEFB5E1A25F14F4C-4!AD30A02!0!F63A1","3fa6ec5aba904b8bda55e532b1489729b4a6164142a67f3a4adda819a4ad669cd344daad7207945d63deb0aa4945d587640ca12920b18fcb50d8fa5e9dad6fb3419993fb0bf87f866c83529947b4a13c628bb158255ccb40c2128479a4c16e9f76ff2f998f44320deab71090c2a9daf017019d0a1612863bf0bd15c949e525b346522bff07c6cce9e49c2886ac3caa4a6842c562b8772b9444a5f8129ed098fc1967c11146408840f77607eddb62bce8e6ae2cb06790f38cf0da357a047c52f168e67974d8d1cd461e2853"};
-pcall(function() delfile('bf15a15feb3e074f81db01496cbb48e2-cache.lua') end)
-  local a pcall(function()a=readfile("static_content_130525/initv4.lua")end) if a and #a>2000 then a=loadstring(a) end;
-if a then return a() else pcall(makefolder, "static_content_130525") a=game:HttpGet("https://cdn.luarmor.net/v4_init_may312.lua") writefile("static_content_130525/initv4.lua", a) pcall(delfile, "static_content_130525/init.lua"); pcall(delfile, "static_content_130525/initv2.lua"); pcall(delfile, "static_content_130525/initv3.lua"); loadstring(a)() end
+local LocalPlayer = Players.LocalPlayer
+local toggled = false
+local isMovingManually = false
+
+-- Track manual movement input
+local movementKeys = {
+	[Enum.KeyCode.W] = true,
+	[Enum.KeyCode.A] = true,
+	[Enum.KeyCode.S] = true,
+	[Enum.KeyCode.D] = true,
+}
+
+-- Handle input
+UserInputService.InputBegan:Connect(function(input, gameProcessed)
+    if key == 'speedx' then
+	if gameProcessed then return end
+
+	if input.KeyCode == Enum.KeyCode.X then
+		toggled = not toggled
+		print("AutoGuard: " .. (toggled and "ON" or "OFF"))
+	end
+
+	if movementKeys[input.KeyCode] then
+		isMovingManually = true
+	end
+    end
+end)
+
+UserInputService.InputEnded:Connect(function(input)
+	if movementKeys[input.KeyCode] then
+		local stillMoving = false
+		for key in pairs(movementKeys) do
+			if UserInputService:IsKeyDown(key) then
+				stillMoving = true
+				break
+			end
+		end
+		isMovingManually = stillMoving
+	end
+end)
+
+-- Find closest opponent with the ball
+local function getClosestOpponentWithBall()
+	local myChar = LocalPlayer.Character
+	if not myChar or not myChar:FindFirstChild("HumanoidRootPart") then return nil end
+
+	local closest = nil
+	local shortestDist = math.huge
+
+	for _, player in ipairs(Players:GetPlayers()) do
+		if player ~= LocalPlayer and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+			if player.Character:FindFirstChild("Basketball") then
+				local dist = (myChar.HumanoidRootPart.Position - player.Character.HumanoidRootPart.Position).Magnitude
+				if dist < shortestDist then
+					closest = player
+					shortestDist = dist
+				end
+			end
+		end
+	end
+
+	return closest
 end
+
+-- Main logic
+RunService.RenderStepped:Connect(function()
+	if not toggled then return end
+
+	local myChar = LocalPlayer.Character
+	if not myChar or not myChar:FindFirstChild("HumanoidRootPart") or not myChar:FindFirstChildOfClass("Humanoid") then return end
+
+	if myChar:FindFirstChild("Basketball") then
+		toggled = false
+		print("AutoGuard: OFF (you got the ball)")
+		return
+	end
+
+	if isMovingManually then return end
+
+	local myHRP = myChar.HumanoidRootPart
+	local humanoid = myChar:FindFirstChildOfClass("Humanoid")
+
+	local targetPlayer = getClosestOpponentWithBall()
+	if not (targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart")) then return end
+
+	local targetHRP = targetPlayer.Character.HumanoidRootPart
+	local velocity = targetHRP.Velocity
+
+	-- If opponent is not moving, fallback to LookVector
+	if velocity.Magnitude < 1 then
+		velocity = targetHRP.CFrame.LookVector * 2
+	end
+
+	-- Get flat direction of their actual movement
+	local opponentMoveDir = Vector3.new(velocity.X, 0, velocity.Z).Unit
+	local spacingDistance = 7 -- how far ahead to stay
+
+	-- Target position = ahead of opponent along their path
+	local targetPosition = targetHRP.Position + opponentMoveDir * spacingDistance
+
+	-- Determine direction to that position
+	local toTarget = targetPosition - myHRP.Position
+	local moveDir = Vector3.new(toTarget.X, 0, toTarget.Z)
+
+	-- Only move if not already close enough
+	if moveDir.Magnitude > 1 then
+		humanoid:Move(moveDir.Unit, false)
+	else
+		humanoid:Move(Vector3.zero, false)
+	end
+end)
