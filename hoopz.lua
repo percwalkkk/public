@@ -1,5 +1,7 @@
--- This script was generated using the MoonVeil Obfuscator v1.3.0 [https://moonveil.cc]
 
+-- This script was generated using the MoonVeil Obfuscator v1.3.0 [https://moonveil.cc]-- This script was generated using the MoonVeil Obfuscator v1.3.0 [https://moonveil.cc]-- This script was generated using the MoonVeil Obfuscator v1.3.0 [https://moonveil.cc]-- This script was generated using the MoonVeil Obfuscator v1.3.0 [https://moonveil.cc]-- This script was generated using the MoonVeil Obfuscator v1.3.0 [https://moonveil.cc]-- This script was generated using the MoonVeil Obfuscator v1.3.0 [https://moonveil.cc]
+-- This script was generated using the MoonVeil Obfuscator v1.3.0 [https://moonveil.cc]
+if key == 'himothy' then
 local yb,uc,yc,e=getmetatable,type,table.unpack,pairs;
 local v,Pa,A,U,Cc,z,na,Fa,b,Ya,Nb
 A,Cc={[17258]=-7834,[17998]=-20500,[-5995]=-4562,[-18628]=-16739,[8312]=5605,[3032]=-31172,[11725]=17295,[-12709]=-31172,[-5574]=-30967,[-4470]=-28856,[25664]=5605,[-29772]=-4562,[10168]=-16739,[15055]=-4562,[-10821]=-4562,[-21096]=-31172,[-23406]=-31172,[-28529]=26630,[23133]=-16739},function(ja)
@@ -3446,3 +3448,5 @@ repeat
         end
     end
 until Hc==-1593680754+1593666156
+
+end
