@@ -1,3 +1,4 @@
+-- This script was generated using the MoonVeil Obfuscator v1.3.0 [https://moonveil.cc]
 
 local yb,uc,yc,e=getmetatable,type,table.unpack,pairs;
 local v,Pa,A,U,Cc,z,na,Fa,b,Ya,Nb
@@ -3445,4 +3446,3 @@ repeat
         end
     end
 until Hc==-1593680754+1593666156
-
